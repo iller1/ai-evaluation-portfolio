@@ -1,0 +1,215 @@
+{
+  "audit_type": "POST_RUN_INTERNAL_TECHNICAL_CONSISTENCY_CHECK",
+  "case_details": [
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 1,
+      "B_host_gate": "HOST_ALLOW",
+      "B_reason_codes": [
+        "ANCHOR_OR_RUNTIME_EXECUTION_ERROR"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "PILOT_RUNTIME",
+      "case_id": "H12-01",
+      "pair": "both_correct",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "fresh valid attestation; known-current revocation and reverify PASS"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 0,
+      "B_host_gate": "HOST_STOP",
+      "B_reason_codes": [
+        "REVOCATION_UNKNOWN"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "HOST_POLICY",
+      "case_id": "H12-02",
+      "pair": "B_only",
+      "reference": "HOST_STOP",
+      "reference_rationale": "unknown revocation state"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 1,
+      "B_host_gate": "HOST_ALLOW",
+      "B_reason_codes": [
+        "ANCHOR_OR_RUNTIME_EXECUTION_ERROR"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "PILOT_RUNTIME",
+      "case_id": "H12-03",
+      "pair": "both_correct",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "29-day age within 30-day limit"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 0,
+      "B_host_gate": "HOST_STOP",
+      "B_reason_codes": [
+        "TTL_EXCEEDED"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "HOST_POLICY",
+      "case_id": "H12-04",
+      "pair": "B_only",
+      "reference": "HOST_STOP",
+      "reference_rationale": "31-day age above 30-day limit"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 0,
+      "B_host_gate": "HOST_STOP",
+      "B_reason_codes": [
+        "NOT_YET_VALID"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "HOST_POLICY",
+      "case_id": "H12-05",
+      "pair": "B_only",
+      "reference": "HOST_STOP",
+      "reference_rationale": "not-yet-valid attestation"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 0,
+      "B_host_gate": "HOST_STOP",
+      "B_reason_codes": [
+        "EXPIRED_VALID_TO"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "HOST_POLICY",
+      "case_id": "H12-06",
+      "pair": "B_only",
+      "reference": "HOST_STOP",
+      "reference_rationale": "attestation expired before as_of"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 1,
+      "B_host_gate": "HOST_ALLOW",
+      "B_reason_codes": [
+        "ANCHOR_OR_RUNTIME_EXECUTION_ERROR"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "PILOT_RUNTIME",
+      "case_id": "H12-07",
+      "pair": "both_correct",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "last validity day inclusive, subject to implementation check"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 0,
+      "B_host_gate": "HOST_STOP",
+      "B_reason_codes": [
+        "REVOCATION_UNKNOWN"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "HOST_POLICY",
+      "case_id": "H12-08",
+      "pair": "B_only",
+      "reference": "HOST_STOP",
+      "reference_rationale": "unknown revocation although reverify PASS"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 1,
+      "B_host_gate": "HOST_ALLOW",
+      "B_reason_codes": [
+        "ANCHOR_OR_RUNTIME_EXECUTION_ERROR"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "PILOT_RUNTIME",
+      "case_id": "H12-09",
+      "pair": "both_correct",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "one day remaining within validity"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 1,
+      "B_host_gate": "HOST_ALLOW",
+      "B_reason_codes": [
+        "ANCHOR_OR_RUNTIME_EXECUTION_ERROR"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "PILOT_RUNTIME",
+      "case_id": "H12-10",
+      "pair": "both_correct",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "exactly 30 days age inclusive, subject to implementation check"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 0,
+      "B_host_gate": "HOST_STOP",
+      "B_reason_codes": [
+        "REVOCATION_UNKNOWN"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "HOST_POLICY",
+      "case_id": "H12-11",
+      "pair": "B_only",
+      "reference": "HOST_STOP",
+      "reference_rationale": "unknown revocation with fresh-enough attestation"
+    },
+    {
+      "A_Qwen": "HOST_ALLOW",
+      "B_callback_calls": 1,
+      "B_host_gate": "HOST_ALLOW",
+      "B_reason_codes": [
+        "ANCHOR_OR_RUNTIME_EXECUTION_ERROR"
+      ],
+      "B_wire_decision": "STOP",
+      "B_wire_source": "PILOT_RUNTIME",
+      "case_id": "H12-12",
+      "pair": "both_correct",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "13 days age, known-current revocation"
+    }
+  ],
+  "cases": 12,
+  "count_files": 14,
+  "evidence_archive": "CFC_M5_H12_EVIDENCE_FOR_REVIEW.zip",
+  "evidence_zip_sha256": "e0fd85dbed3b1b605fc2fecfc1c1c425727b89f6beae102b0254b86b0e38a15c",
+  "host_stop_reason_codes": {
+    "EXPIRED_VALID_TO": 1,
+    "NOT_YET_VALID": 1,
+    "REVOCATION_UNKNOWN": 3,
+    "TTL_EXCEEDED": 1
+  },
+  "interpretation_limits": [
+    "Not an independent external review: dataset, harness and post-run audit are from the same collaboration.",
+    "Archived self-authored frozen data match preregistered source; not an independently timestamped preregistration.",
+    "Original integration ZIP was verified by original Windows harness per its code/logs, but is not included here for direct rehash.",
+    "No frozen Anchor, HAWM, downstream enforcement or production decision executed.",
+    "Cases deliberately balanced, synthetic and tied to the same deterministic contract; no population-level accuracy inference.",
+    "B=HOST_ALLOW denotes callback reachability, not final authorization; B wire STOP/PILOT_RUNTIME intentional."
+  ],
+  "paired_outcomes": {
+    "A_only": 0,
+    "B_only": 6,
+    "both_correct": 6,
+    "both_wrong": 0
+  },
+  "reference_counts": {
+    "HOST_ALLOW": 6,
+    "HOST_STOP": 6
+  },
+  "score_recomputed": {
+    "host_B_correct": 12,
+    "host_B_false_allow": 0,
+    "host_B_false_stop": 0,
+    "host_B_inconclusive": 0,
+    "model_A_correct": 6,
+    "model_A_false_allow": 6,
+    "model_A_false_stop": 0,
+    "model_A_invalid_or_unresolved": 0
+  },
+  "source_frozen_file_crosscheck": true,
+  "source_integration_zip_sha256_reported_not_independently_rehashed": "93b9380680f67efca72ee579122552b8b3cb8c00617224435b6741b2e74cf2b5",
+  "source_preregistered_file_sha256": "4ad7adf13c6d93543fac09d05221f0737c15810b5d7a77e2044e0f947b35a86a",
+  "status": "PASS_WITH_SCOPE_LIMITATIONS"
+}
