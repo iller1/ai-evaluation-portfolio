@@ -50,3 +50,11 @@ Planned under the portfolio schedule; **not yet conducted or published**. No res
 Study 01 evaluates the **AI2 ARC / ARC-Easy** benchmark (Clark et al., 2018): [dataset](https://huggingface.co/datasets/allenai/ai2_arc) · [paper](https://arxiv.org/abs/1803.05457). The dataset card specifies **CC BY-SA 4.0**. No original benchmark question text is redistributed in this repository.
 
 No repository-wide reuse license has been granted yet for the author's own material; see source licenses for third-party resources. Any external assessment should state exactly what it checked rather than using an unqualified “independently verified” claim.
+
+## M5-H12 — Deterministic host-policy gate vs Qwen3-0.6B (25 October 2026)
+
+A **12-case synthetic, internally audited** paired contract-conformance pilot found Qwen3 returned `HOST_ALLOW` for every case (**6/12 correct; 6 false allows**), while the existing deterministic host-policy gate matched the self-authored references (**12/12; 0 false allows; 0 false stops**). The gate's `ALLOW` means **callback reachability**, not final action authorization.
+
+**Scope:** Host-policy v0.5.0 only. Frozen CFC Anchor, HAWM, downstream actions and independent external evaluation were **not** executed. The underlying raw evidence ZIP and standalone verifier are **not yet hosted in this repository**; this is currently a published report with an internal audit receipt, not a complete public reproduction package.
+
+**[English report](experiments/m5-h12/REPORT_EN.md)** · **[Audit receipt](experiments/m5-h12/AUDIT_RECEIPT.json)** · **[Polish overview](experiments/m5-h12/OMOWIENIE_PL.md)**
