@@ -4,6 +4,14 @@
 
 A portfolio of small, inspectable studies in AI evaluation, experimental design, and evidence-based assurance. Findings are published even when they do **not** support the tested improvement. This repository is separate from the [CFC project](https://github.com/iller1/cfc-ai-evaluation).
 
+## What is CFC, and why evaluate it?
+
+An AI assistant may produce a confident answer even when its supporting information is outdated, incomplete, or intended for a different request. **CFC is an experimental evidence-and-decision-closure framework** that asks a narrower question: *do the currently represented evidence and rules actually justify accepting this conclusion?* Given **explicitly mapped evidence states**, the controller can indicate whether closure is allowed, blocked, or unresolved. It does **not** automatically determine the truth of arbitrary company documents.
+
+This repository records AI-evaluation studies, reproducibility checks, and negative findings. It is **not** a finished enterprise product. A possible commercial pilot would test a small number of human-reviewed operational or technical-support questions and report unsupported approvals, unnecessary blocks, and unresolved cases against rules agreed in advance. Its practical value has **not yet been demonstrated with a customer**.
+
+**[Explore the separate CFC project](https://github.com/iller1/cfc-ai-evaluation)** · **[Host-policy pilot and limitations](experiments/m5-h12/REPORT_EN.md)** · **[Request-to-evidence binding boundary](experiments/m6-request-anchor-binding/REPORT_EN.md)**
+
 ## Study 01 — Does a careful-comparison instruction improve Qwen3-0.6B accuracy?
 
 - **Date:** 19 October 2026
