@@ -49,9 +49,16 @@ An **authorized, external operator-side black-box evaluation** of an Alpha decis
 
 **Disposition:** COMPLETE / CLOSED. The frozen negative outcome is retained, and the owner's subsequent explanation is presented separately.
 
-## Study 02
+## Study 02 — Cross-seed evidence–claim label stability (preregistered)
 
-Planned under the portfolio schedule; **not yet conducted or published**. No results are claimed.
+**Status: FROZEN LOCALLY / NOT YET RUN.** Preparation and SHA-256 freeze checks completed on **25 October 2026**; the main experiment is scheduled for **2–15 November 2026**. **No main model calls or results are claimed.**
+
+- **Question:** how stable are three-way classifications of the *same* evidence–claim pairs across two predefined seeds (101 and 202)?
+- **Design:** 45 synthetic, author-labeled examples; two passes (90 planned responses); one local Qwen3-0.6B model, fixed rubric/prompt/schema, temperature 0.2.
+- **Predeclared assessment:** 45-pair exact agreement; invalid-response counts; Cohen's κ on valid pairs; frozen PASS / FAIL / INCONCLUSIVE / NOT_COMPLETED rules.
+- **Evidence boundary:** local internal review and freeze checks only. The original dataset, contract, protocol, manifest and run logs are not yet publicly deposited. The public scorer and runner code can be self-tested, **but the full study cannot yet be reproduced from this subset**. No outside validation is claimed.
+
+**[Read Study 02's preregistered method, frozen SHA-256 commitments and limitations](reports/report_02/README.md)** · **[Scoring script](reports/report_02/report02_score_v0_1.py)** · **[Run logger](reports/report_02/report02_runner_v0_1.py)**
 
 ## Data attribution and rights
 
