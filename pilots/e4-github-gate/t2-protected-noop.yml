@@ -1,0 +1,80 @@
+name: CFC E4 - GitHub protected environment NOOP
+run-name: "CFC E4 / ${{ inputs.case_id }} / ${{ inputs.decision_id }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      case_id:
+        description: 'G1_WAIT, G2_APPROVE or G3_REJECT (preregistered)'
+        type: choice
+        required: true
+        options:
+          - G1_WAIT
+          - G2_APPROVE
+          - G3_REJECT
+      decision_id:
+        description: 'Synthetic decision, no real document'
+        type: string
+        required: true
+        default: 'DEMO-001'
+      decision_sha256:
+        description: 'Exact SHA256 of synthetic decision fixture'
+        type: string
+        required: true
+        default: 'fb4755bb465c15e897548ba7b40997a0c548f83026b8147188a95cb7f8b26911'
+
+permissions:
+  contents: read
+
+jobs:
+  guarded_noop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment:
+      name: cfc-handoff-review-test
+    steps:
+      - name: Validate synthetic decision and record NOOP runner start
+        shell: bash
+        env:
+          CASE_ID: ${{ inputs.case_id }}
+          DECISION_ID: ${{ inputs.decision_id }}
+          DECISION_SHA256: ${{ inputs.decision_sha256 }}
+          EXPECTED_SHA256: 'fb4755bb465c15e897548ba7b40997a0c548f83026b8147188a95cb7f8b26911'
+        run: |
+          python3 - <<'PYTHON'
+          import datetime, json, os, sys
+          case_id = os.environ['CASE_ID']
+          decision_id = os.environ['DECISION_ID']
+          provided = os.environ['DECISION_SHA256']
+          expected = os.environ['EXPECTED_SHA256']
+          if case_id not in ('G1_WAIT', 'G2_APPROVE', 'G3_REJECT'):
+              sys.exit('STOP: unknown case')
+          if decision_id != 'DEMO-001' or provided != expected:
+              sys.exit('STOP: synthetic decision binding mismatch')
+          rec = {
+              'schema': 'CFC_E4_GITHUB_RUNNER_OBSERVATION_v0.1',
+              'case_id': case_id,
+              'decision_id': decision_id,
+              'decision_sha256': provided,
+              'resource_id': 'KB-DEMO-001',
+              'action': 'NOOP',
+              'scope': 'DEMO_ONLY',
+              'github_run_id': os.environ.get('GITHUB_RUN_ID'),
+              'github_run_attempt': os.environ.get('GITHUB_RUN_ATTEMPT'),
+              'github_actor': os.environ.get('GITHUB_ACTOR'),
+              'runner_started_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'effect': 'NOOP_ONLY',
+              'authorization_epoch_verified': False,
+              'receipt_cryptographically_signed': False,
+              'actual_T3_publication': False,
+          }
+          print(json.dumps(rec, sort_keys=True))
+          summary_lines = [
+              '### CFC E4 provider-gate observation (NOOP)',
+              f'Run: {rec["github_run_id"]} / {rec["case_id"]}',
+              '',
+              'No real publication, no CFC execution, no authorization epoch proof.',
+          ]
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+              f.write(chr(10).join(summary_lines) + chr(10))
+          PYTHON
