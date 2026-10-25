@@ -1,27 +1,28 @@
-# M5-H12 portfolio review package
+# M5-H12 · Synthetic paired host-policy conformance pilot
 
-This package records a **completed and internally audited synthetic host-policy A/B pilot** (25 October 2026). It does **not** document a frozen CFC Anchor run, downstream authorization, independent blind evaluation or a production benchmark.
+**Run date:** 25 October 2026 · **Audit:** internal post-run technical consistency · **Outcome:** `PASS_WITH_SCOPE_LIMITATIONS`.
 
-## Files
+Qwen3 0.6B returned `HOST_ALLOW` for all twelve constructed cases (**6/12 correct; 6 false allows**); the deterministic host-policy v0.5.0 gate matched all twelve pre-authored labels (**12/12; no false allow or false stop**). This is a narrow test of **permission to invoke an Anchor callback**, not final authorization. The frozen CFC Anchor, HAWM, downstream executor, and independent review were **not executed**.
 
-- `REPORT_EN.md` — publication-ready English audit report.
-- `OMOWIENIE_PL.md` — Polish explanation and decision.
-- `AUDIT_RECEIPT.json` — machine-readable per-case consistency check and summary.
-- `verify_evidence.py` — read-only standalone Python 3 standard-library verifier (distributed in the downloadable review archive; not yet hosted in this repository).
-- `FROZEN_CASES_AND_ORACLE.json` — unmodified pre-authored cases and oracle (in downloadable review archive; not yet hosted here).
-- `evidence/CFC_M5_H12_EVIDENCE_FOR_REVIEW.zip` — unchanged 14-file evidence bundle from Windows (in downloadable review archive; not yet hosted here).
+## Repository contents
 
-To verify locally:
+- [REPORT_EN.md](REPORT_EN.md) — full English methods, case-level results and limitations.
+- [OMOWIENIE_PL.md](OMOWIENIE_PL.md) — Polish explanation.
+- [AUDIT_RECEIPT.json](AUDIT_RECEIPT.json) — per-case internal consistency report.
+- [FROZEN_CASES_AND_ORACLE.json](FROZEN_CASES_AND_ORACLE.json) — original pre-authored case set. SHA-256: `4ad7adf13c6d93543fac09d05221f0737c15810b5d7a77e2044e0f947b35a86a`.
+- [evidence/PRIMARY_EVIDENCE_EXPORT.json](evidence/PRIMARY_EVIDENCE_EXPORT.json) — **verbatim UTF-8 contents of all 14 original JSON evidence members** and per-member SHA-256 checksums, as a public text export. This is **not** the original ZIP byte stream.
+- [verify_public_export.py](verify_public_export.py) — checks every public member's SHA-256, reconstructs a temporary ZIP for inspection, and recomputes the audit using the accompanying [verify_evidence.py](verify_evidence.py).
+
+## Recompute from public source files
+
+Requires Python 3.9+ and the standard library; no local model or GitHub login is needed.
 
 ```bash
-python verify_evidence.py evidence/CFC_M5_H12_EVIDENCE_FOR_REVIEW.zip --frozen-file FROZEN_CASES_AND_ORACLE.json
+python verify_public_export.py evidence/PRIMARY_EVIDENCE_EXPORT.json --frozen-file FROZEN_CASES_AND_ORACLE.json
 ```
 
-The result should be `PASS_WITH_SCOPE_LIMITATIONS`.
+Expected lines include `PUBLIC_EXPORT_AUDIT: PASS_WITH_SCOPE_LIMITATIONS`, `VERBATIM_JSON_MEMBERS: 14`, model A correct = 6, gate B correct = 12 and paired outcomes both_correct = 6, B_only = 6.
 
-**Archive SHA-256:** `e0fd85dbed3b1b605fc2fecfc1c1c425727b89f6beae102b0254b86b0e38a15c`.
+**Important boundary:** the original evidence container, `CFC_M5_H12_EVIDENCE_FOR_REVIEW.zip`, has a reported SHA-256 of `e0fd85dbed3b1b605fc2fecfc1c1c425727b89f6beae102b0254b86b0e38a15c`. Its raw binary ZIP bytes are **not hosted** in this repository. The public export independently checks *member contents*, not the original ZIP envelope hash. The original Windows run and v0.5.0 Integration Layer were **not rerun** by the post-run audit; this does not prove independent source custody, external preregistration, or actual frozen CFC execution.
 
-No file in this package proves independent custody or independently re-executes the original CFC Integration Layer. Please retain the English limitations section when sharing the report.
-## Current GitHub publication scope
-
-The report, Polish commentary and `AUDIT_RECEIPT.json` are published here. The original 14-file evidence ZIP, frozen case source, and standalone verifier remain in the downloadable research archive and are **not yet available from this repository**. Consequently, GitHub visitors cannot independently run the posted verifier using only this repository. This is a documentation publication, not an independent reproduction or complete evidence release.
+**Research disposition:** M5-H12 closed; do not fold new tests into its 12-case denominator. Any frozen-Anchor identity-binding test is a separate, preregistered study.
