@@ -57,7 +57,7 @@ Planned under the portfolio schedule; **not yet conducted or published**. No res
 
 Study 01 evaluates the **AI2 ARC / ARC-Easy** benchmark (Clark et al., 2018): [dataset](https://huggingface.co/datasets/allenai/ai2_arc) · [paper](https://arxiv.org/abs/1803.05457). The dataset card specifies **CC BY-SA 4.0**. No original benchmark question text is redistributed in this repository.
 
-No repository-wide reuse license has been granted yet for the author's own material; see source licenses for third-party resources. Any external assessment should state exactly what it checked rather than using an unqualified “independently verified” claim.
+This public portfolio is **available for inspection, not automatically for reuse**. No repository-wide software or content license has been granted. See [Rights, attribution and reuse status](RIGHTS_AND_REUSE.md), including the separate rights of dataset authors and external collaborators. Any external assessment should state exactly what it checked rather than using an unqualified “independently verified” claim.
 
 ## M5-H12 — Deterministic host-policy gate vs Qwen3-0.6B (25 October 2026)
 
