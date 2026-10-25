@@ -4,5 +4,5 @@
   "resource_id": "E5-NOOP-RESOURCE",
   "action": "NOOP",
   "authorization_epoch": "NOT_TESTED",
-  "state": "READY"
+  "state": "ACCEPTED"
 }
