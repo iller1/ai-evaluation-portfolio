@@ -55,6 +55,6 @@ No repository-wide reuse license has been granted yet for the author's own mater
 
 A **12-case synthetic, internally audited** paired contract-conformance pilot found Qwen3 returned `HOST_ALLOW` for every case (**6/12 correct; 6 false allows**), while the existing deterministic host-policy gate matched the self-authored references (**12/12; 0 false allows; 0 false stops**). The gate's `ALLOW` means **callback reachability**, not final action authorization.
 
-**Scope:** Host-policy v0.5.0 only. Frozen CFC Anchor, HAWM, downstream actions and independent external evaluation were **not** executed. The underlying raw evidence ZIP and standalone verifier are **not yet hosted in this repository**; this is currently a published report with an internal audit receipt, not a complete public reproduction package.
+**Scope:** Host-policy v0.5.0 only. Frozen CFC Anchor, HAWM, downstream actions and independent external evaluation were **not** executed. All 14 evidence JSON members (verbatim text with per-file checksums), the frozen cases, and a runnable standard-library audit verifier are **publicly available** in this repository. The original binary evidence ZIP remains outside GitHub; this public export supports internal consistency recomputation, **not** independent proof of the original execution or ZIP-byte integrity.
 
 **[English report](experiments/m5-h12/REPORT_EN.md)** · **[Audit receipt](experiments/m5-h12/AUDIT_RECEIPT.json)** · **[Polish overview](experiments/m5-h12/OMOWIENIE_PL.md)**
