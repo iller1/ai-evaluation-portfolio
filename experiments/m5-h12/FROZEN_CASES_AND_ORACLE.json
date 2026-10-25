@@ -1,0 +1,464 @@
+{
+  "as_of": "2026-09-14",
+  "cases": [
+    {
+      "case_id": "H12-01",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "fresh valid attestation; known-current revocation and reverify PASS",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:01",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-14",
+          "schema": "demo",
+          "valid_from": "2026-09-14",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:01"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:01:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:01:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-01",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-02",
+      "reference": "HOST_STOP",
+      "reference_rationale": "unknown revocation state",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:02",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-14",
+          "schema": "demo",
+          "valid_from": "2026-09-14",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:02"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:02:1",
+            "event_type": "REVOCATION_UNKNOWN",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:02:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-02",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-03",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "29-day age within 30-day limit",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:03",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-08-16",
+          "schema": "demo",
+          "valid_from": "2026-08-16",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:03"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:03:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:03:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-03",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-04",
+      "reference": "HOST_STOP",
+      "reference_rationale": "31-day age above 30-day limit",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:04",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-08-14",
+          "schema": "demo",
+          "valid_from": "2026-08-14",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:04"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:04:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:04:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-04",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-05",
+      "reference": "HOST_STOP",
+      "reference_rationale": "not-yet-valid attestation",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:05",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-10",
+          "schema": "demo",
+          "valid_from": "2026-09-15",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:05"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:05:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:05:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-05",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-06",
+      "reference": "HOST_STOP",
+      "reference_rationale": "attestation expired before as_of",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:06",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-10",
+          "schema": "demo",
+          "valid_from": "2026-09-10",
+          "valid_to": "2026-09-13"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:06"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:06:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:06:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-06",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-07",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "last validity day inclusive, subject to implementation check",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:07",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-10",
+          "schema": "demo",
+          "valid_from": "2026-09-14",
+          "valid_to": "2026-09-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:07"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:07:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:07:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-07",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-08",
+      "reference": "HOST_STOP",
+      "reference_rationale": "unknown revocation although reverify PASS",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:08",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-10",
+          "schema": "demo",
+          "valid_from": "2026-09-10",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:08"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:08:1",
+            "event_type": "REVOCATION_UNKNOWN",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:08:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-08",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-09",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "one day remaining within validity",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:09",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-14",
+          "schema": "demo",
+          "valid_from": "2026-09-14",
+          "valid_to": "2026-09-15"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:09"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:09:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:09:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-09",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-10",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "exactly 30 days age inclusive, subject to implementation check",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:10",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-08-15",
+          "schema": "demo",
+          "valid_from": "2026-08-15",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:10"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:10:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:10:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-10",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-11",
+      "reference": "HOST_STOP",
+      "reference_rationale": "unknown revocation with fresh-enough attestation",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:11",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-08-16",
+          "schema": "demo",
+          "valid_from": "2026-08-16",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:11"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:11:1",
+            "event_type": "REVOCATION_UNKNOWN",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:11:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-11",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    },
+    {
+      "case_id": "H12-12",
+      "reference": "HOST_ALLOW",
+      "reference_rationale": "13 days age, known-current revocation",
+      "request": {
+        "attestation_payload": {
+          "attestation_id": "att:heldout:12",
+          "authority_id": "AUTH:SSI",
+          "independence_commitment": "synthetic-commitment",
+          "issued_at": "2026-09-01",
+          "schema": "demo",
+          "valid_from": "2026-09-01",
+          "valid_to": "2026-10-14"
+        },
+        "binding": {
+          "as_of": "2026-09-14",
+          "audience_id": "pilot-client",
+          "purpose_id": "decision-closure",
+          "resource_id": "claim:heldout:12"
+        },
+        "lifecycle_events": [
+          {
+            "event_id": "h12:12:1",
+            "event_type": "REVOCATION_KNOWN_ACTIVE",
+            "observed_at": "2026-09-14T12:00:00+00:00",
+            "reason": "synthetic status record"
+          },
+          {
+            "event_id": "h12:12:2",
+            "event_type": "REVERIFY_PASS",
+            "observed_at": "2026-09-14T12:00:01+00:00",
+            "reason": "synthetic reverify success"
+          }
+        ],
+        "request_id": "synthetic:h12-12",
+        "schema": "CFC_PILOT_REQUEST_V1"
+      }
+    }
+  ],
+  "n": 12,
+  "reference_basis": "Policy contract v0.1; author-derived ex ante, NOT independently adjudicated, not taken from test B",
+  "schema": "CFC_M5_HELDOUT12_PREREG_v0.1"
+}
