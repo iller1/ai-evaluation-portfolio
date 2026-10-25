@@ -33,7 +33,14 @@ jobs:
     environment:
       name: cfc-handoff-review-test
     steps:
-      - name: Validate synthetic decision and record NOOP runner start
+      # This is a review-only workflow file until copied to a separate sandbox.
+      - name: Checkout exactly the run commit (read-only)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Validate actual T1 fixture and record NOOP runner start
         shell: bash
         env:
           CASE_ID: ${{ inputs.case_id }}
@@ -42,20 +49,80 @@ jobs:
           EXPECTED_SHA256: 'fb4755bb465c15e897548ba7b40997a0c548f83026b8147188a95cb7f8b26911'
         run: |
           python3 - <<'PYTHON'
-          import datetime, json, os, sys
+          import datetime, hashlib, json, os, re, subprocess, sys
+          from pathlib import Path
           case_id = os.environ['CASE_ID']
           decision_id = os.environ['DECISION_ID']
           provided = os.environ['DECISION_SHA256']
           expected = os.environ['EXPECTED_SHA256']
           if case_id not in ('G1_WAIT', 'G2_APPROVE', 'G3_REJECT'):
               sys.exit('STOP: unknown case')
-          if decision_id != 'DEMO-001' or provided != expected:
-              sys.exit('STOP: synthetic decision binding mismatch')
+          # Do not trust dispatch inputs as proof of the artifact's identity.
+          if os.environ.get('GITHUB_EVENT_NAME') != 'workflow_dispatch':
+              sys.exit('STOP: unexpected workflow event')
+          github_sha = os.environ.get('GITHUB_SHA', '').lower()
+          if not re.fullmatch(r'[0-9a-f]{40}', github_sha):
+              sys.exit('STOP: missing/invalid GITHUB_SHA')
+          workspace = Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          try:
+              checkout_sha = subprocess.check_output(
+                  ['git', 'rev-parse', 'HEAD'], cwd=workspace, text=True
+              ).strip().lower()
+          except (OSError, subprocess.CalledProcessError):
+              sys.exit('STOP: checked-out commit unavailable')
+          if checkout_sha != github_sha:
+              sys.exit('STOP: checkout does not match the workflow run commit')
+
+          # Verify the actual committed fixture, not just the provided hash.
+          fixture_relpath = 'pilots/e4-github-gate/synthetic_decision.json'
+          fixture_path = workspace / fixture_relpath
+          if not fixture_path.is_file():
+              sys.exit('STOP: missing T1 fixture at the run commit')
+          raw_fixture = fixture_path.read_bytes()
+
+          def reject_duplicate_keys(pairs):
+              obj = {}
+              for key, value in pairs:
+                  if key in obj:
+                      raise ValueError('duplicate JSON key')
+                  obj[key] = value
+              return obj
+
+          try:
+              fixture_data = json.loads(
+                  raw_fixture.decode('utf-8'), object_pairs_hook=reject_duplicate_keys
+              )
+          except (UnicodeError, ValueError):
+              sys.exit('STOP: invalid/ambiguous T1 fixture')
+          canonical_fixture = json.dumps(
+              fixture_data, sort_keys=True, separators=(',', ':'), ensure_ascii=False
+          ).encode('utf-8')
+          computed_sha256 = hashlib.sha256(canonical_fixture).hexdigest()
+          raw_sha256 = hashlib.sha256(raw_fixture).hexdigest()
+          exact_fixture = {
+              'action': 'NOOP',
+              'decision_id': 'DEMO-001',
+              'resource_id': 'KB-DEMO-001',
+              'scope': 'DEMO_ONLY',
+          }
+          if fixture_data != exact_fixture:
+              sys.exit('STOP: unexpected T1 fixture fields')
+          if decision_id != fixture_data['decision_id'] or not (
+              provided == computed_sha256 == expected
+          ):
+              sys.exit('STOP: T1 runtime fixture/hash/dispatch binding mismatch')
+
           rec = {
               'schema': 'CFC_E4_GITHUB_RUNNER_OBSERVATION_v0.1',
               'case_id': case_id,
               'decision_id': decision_id,
-              'decision_sha256': provided,
+              'decision_sha256': computed_sha256,
+              'decision_sha256_dispatch_input': provided,
+              'fixture_canonical_sha256': computed_sha256,
+              'fixture_raw_sha256': raw_sha256,
+              'fixture_repo_path': fixture_relpath,
+              'github_sha': github_sha,
+              'checkout_sha': checkout_sha,
               'resource_id': 'KB-DEMO-001',
               'action': 'NOOP',
               'scope': 'DEMO_ONLY',
@@ -72,6 +139,8 @@ jobs:
           summary_lines = [
               '### CFC E4 provider-gate observation (NOOP)',
               f'Run: {rec["github_run_id"]} / {rec["case_id"]}',
+              f'Commit: {rec["github_sha"]}',
+              f'T1 fixture (canonical SHA-256): {rec["fixture_canonical_sha256"]}',
               '',
               'No real publication, no CFC execution, no authorization epoch proof.',
           ]
