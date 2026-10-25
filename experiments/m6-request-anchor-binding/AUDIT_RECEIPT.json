@@ -1,0 +1,60 @@
+{
+  "schema": "M6_POST_RUN_EVIDENCE_AUDIT_V1",
+  "audit_date": "2026-10-25",
+  "archive_sha256": "c5150f436218534a579e919b1bf2fe8eff0f7448e7ebb7e885a50e5fe666d95a",
+  "original_source_sha256": "93b9380680f67efca72ee579122552b8b3cb8c00617224435b6741b2e74cf2b5",
+  "archive_zip_crc": "PASS",
+  "manifest_member_count": 14,
+  "manifest_verified": true,
+  "protocol_semantic_match": true,
+  "protocol_byte_identical": false,
+  "preregistration_hash_refers_to": "PROTOCOL_FROZEN.json",
+  "observations": [
+    {
+      "case_id": "M6-01",
+      "request_resource": "claim:c1",
+      "anchor_claim": "c1",
+      "decision": "ALLOW",
+      "source": "ANCHOR",
+      "final_action_authorized": true,
+      "callback_invocations": 1,
+      "request_fp_recomputed": true,
+      "audit_digest_recomputed": true,
+      "callback_raw_json_sha256_claimed": "ee4aa4affeac1eafe8a66cb4f420e99f2e482c2130e7d2f37a8498263786376c"
+    },
+    {
+      "case_id": "M6-02",
+      "request_resource": "claim:c2",
+      "anchor_claim": "c1",
+      "decision": "ALLOW",
+      "source": "ANCHOR",
+      "final_action_authorized": true,
+      "callback_invocations": 1,
+      "request_fp_recomputed": true,
+      "audit_digest_recomputed": true,
+      "callback_raw_json_sha256_claimed": "2790f9c4b111cc5b06a9d6cfc9908a4fe29ab9c787bdb3e71afeab05feaf8813"
+    },
+    {
+      "case_id": "M6-03",
+      "request_resource": "claim:c1",
+      "anchor_claim": "c1",
+      "decision": "STOP",
+      "source": "HOST_POLICY",
+      "final_action_authorized": false,
+      "callback_invocations": 0,
+      "request_fp_recomputed": true,
+      "audit_digest_recomputed": true,
+      "callback_raw_json_sha256_claimed": null
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Reported Anchor raw JSON SHA-256 cannot be recomputed: original raw Anchor output not archived.",
+    "Frozen wheel bytes are not included in evidence ZIP. Install record and setup logs attest their hash, but wheel authenticity not independently reverified from these bytes.",
+    "M6-03 has zero PilotService callbacks, but runner prepares its positive fixture via real Anchor before calling PilotService. Therefore zero callbacks does not mean zero Anchor operations in entire subprocess.",
+    "No external preregistration or independent custodian; protocol and cases are self-authored.",
+    "No real downstream action was triggered. final_action_authorized is a response field, not proof of any action.",
+    "Hash labelled preregistration_sha256 in summary is SHA-256 of PROTOCOL_FROZEN.json, not of PREREGISTRATION.json. The two deserialize to the same JSON object but differ in bytes."
+  ],
+  "conclusion": "PASS_WITH_SCOPE_LIMITATIONS"
+}
