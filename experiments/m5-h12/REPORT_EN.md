@@ -115,3 +115,15 @@ Expected result: `PASS_WITH_SCOPE_LIMITATIONS`, accompanied by matching score an
 **CLOSE M5-H12 as a completed, internally audited synthetic host-policy comparison.** Preserve all 12 records without post-hoc relabelling or blending them into the earlier two-case pilot. Do **not** repeat the same synthetic battery or claim a demonstrated improvement by full CFC/HAWM.
 
 If the broader research programme continues, the next justified experiment must be separately preregistered, involve real frozen Anchor execution with request-to-evidence identity binding, and include an externally assessed or independently reproduced set with both false-allow and false-block opportunities. That would be a **new study**, not an extension of the H12 denominator.
+
+## Public GitHub evidence export (publication addendum, 25 October 2026)
+
+After the original internal review, the **verbatim UTF-8 text of all 14 JSON members** was published in [PRIMARY_EVIDENCE_EXPORT.json](evidence/PRIMARY_EVIDENCE_EXPORT.json), together with [FROZEN_CASES_AND_ORACLE.json](FROZEN_CASES_AND_ORACLE.json), [verify_evidence.py](verify_evidence.py), and [verify_public_export.py](verify_public_export.py). Each JSON member was checked against the originally submitted ZIP by byte comparison, and the uploaded GitHub file identities were confirmed against the local Git blob hashes.
+
+Readers can recompute the published scoring and paired outcomes using:
+
+```bash
+python verify_public_export.py evidence/PRIMARY_EVIDENCE_EXPORT.json --frozen-file FROZEN_CASES_AND_ORACLE.json
+```
+
+This verifies record-level bytes and internal consistency **without re-executing either model or gate**. The original binary ZIP file was **not** published on GitHub, and therefore its original ZIP-container checksum cannot be independently reconfirmed from the public text export. This addendum does not change any original results or upgrade the internal audit into an external evaluation.
