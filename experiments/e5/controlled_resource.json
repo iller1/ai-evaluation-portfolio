@@ -1,0 +1,8 @@
+{
+  "schema": "CFC_E5_REMOTE_FILE_CAS_v0.1",
+  "decision_id": "DEMO-E5-001",
+  "resource_id": "E5-NOOP-RESOURCE",
+  "action": "NOOP",
+  "authorization_epoch": "NOT_TESTED",
+  "state": "READY"
+}
