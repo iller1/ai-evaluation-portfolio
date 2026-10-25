@@ -58,3 +58,11 @@ A **12-case synthetic, internally audited** paired contract-conformance pilot fo
 **Scope:** Host-policy v0.5.0 only. Frozen CFC Anchor, HAWM, downstream actions and independent external evaluation were **not** executed. All 14 evidence JSON members (verbatim text with per-file checksums), the frozen cases, and a runnable standard-library audit verifier are **publicly available** in this repository. The original binary evidence ZIP remains outside GitHub; this public export supports internal consistency recomputation, **not** independent proof of the original execution or ZIP-byte integrity.
 
 **[English report](experiments/m5-h12/REPORT_EN.md)** · **[Audit receipt](experiments/m5-h12/AUDIT_RECEIPT.json)** · **[Polish overview](experiments/m5-h12/OMOWIENIE_PL.md)**
+
+## M6 — Request-to-Anchor claim binding (25 October 2026)
+
+A three-case **synthetic, internally audited** diagnostic of Integration Layer v0.5.0 using frozen CFC Anchor 0.2.90rc1 found that a deliberately mismatched caller callback (`request.resource_id=claim:c2` while evaluating `c1`) still yielded `ALLOW` and `final_action_authorized=true`. The matched and host-policy STOP controls behaved as documented. **The boundary belongs to caller/integration claim-identity binding; it is not evidence of an Anchor reasoning defect or production exploit.** No downstream action was attempted.
+
+The original evidence ZIP, full raw Anchor output and wheel bytes are **not** hosted here; the original wheel/output cannot be independently replayed from this publication. The next step is **independent design review**, not a proposed fix presented as implemented.
+
+**[Report](experiments/m6-request-anchor-binding/REPORT_EN.md)** · **[Audit receipt](experiments/m6-request-anchor-binding/AUDIT_RECEIPT.json)** · **[Proposed binding contract — not implemented](experiments/m6-request-anchor-binding/BOUNDARY_CONTRACT_PROPOSAL_v0.1.md)** · **[Polish overview](experiments/m6-request-anchor-binding/OMOWIENIE_PL.md)**
