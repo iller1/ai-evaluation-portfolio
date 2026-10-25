@@ -20,6 +20,18 @@ This is a small, preregistered experiment proposal testing whether GitHub Action
 
 Synthetic T1: [`synthetic_decision.json`](synthetic_decision.json), canonical JSON SHA-256 `fb4755bb465c15e897548ba7b40997a0c548f83026b8147188a95cb7f8b26911`.
 
+### Review correction: T1 runtime binding (2026-10-25)
+
+The original proposal merely compared a `workflow_dispatch` string with the expected digest; this did **not** prove that a real fixture was present on the run's source commit. That review finding has been fixed in the **inactive workflow source**:
+
+- The runner checks out the exact `github.sha` with a pinned `actions/checkout` revision and no persisted credentials.
+- It requires `git rev-parse HEAD == GITHUB_SHA`.
+- It reads `pilots/e4-github-gate/synthetic_decision.json` **from that checkout**, rejects duplicate JSON keys/unexpected fixture content, recomputes SHA-256 over canonical sorted compact JSON, and compares this with both the pre-registered hash and dispatch input.
+- The runner observation includes `github_sha`, `checkout_sha`, `fixture_canonical_sha256`, and `fixture_raw_sha256`. Only the canonical SHA-256 is compared with the frozen expected value.
+- **For the future sandbox:** place the fixture at the *same repository-relative path* and activate the workflow in `.github/workflows/` **only after** all required human environment protections are configured. The G1/G2/G3 criteria stay unchanged. The fixture binding is observed only when a runner actually starts; GitHub approval metadata must still be examined separately.
+
+This closes one **runtime artifact-binding issue in the proposed runner**, not the gap between approval and execution. No live run, cryptographic authorization receipt, or independent audit is claimed.
+
 ## Please review
 
 1. Is the setup sufficient to separate the requester's approval from the human reviewer's decision?
