@@ -14,6 +14,7 @@ An AI assistant can give a plausible answer based on an outdated, incomplete or 
 
 - **[Study 01 — paired model evaluation](reports/report_01/README.md):** 200 ARC-Easy items, 400 model responses; an additional instruction did **not** establish better accuracy. Includes published statistical recomputation with explicit evidence limits.
 - **[Study 02 — preregistered stability experiment](reports/report_02/README.md):** 45 synthetic evidence–claim pairs, predefined seeds and scoring rules. **Frozen locally; not run; no results.**
+- **[Nine-case Qwen3 1.7B failure-mode diagnostic](experiments/qwen3-1.7b-document-consistency-9case/README.md):** document-rule consistency and uncertainty, 4/9 strict semantic PASS; includes original source texts and verbatim response transcriptions. **Direct Ollama only; not a product/CFC test.**
 - **[CFC project](https://github.com/iller1/cfc-ai-evaluation):** separate experimental framework and control demonstrations, with carefully limited claims.
 - **[Rights and reuse status](RIGHTS_AND_REUSE.md):** public for inspection; **no repository-wide reuse license granted**.
 
@@ -66,6 +67,14 @@ An **authorized, external operator-side black-box evaluation** of an Alpha decis
 - **Evidence boundary:** local internal review and freeze checks only. The original dataset, contract, protocol, manifest and run logs are not yet publicly deposited. The public scorer and runner code can be self-tested, **but the full study cannot yet be reproduced from this subset**. No outside validation is claimed.
 
 **[Read Study 02's preregistered method, frozen SHA-256 commitments and limitations](reports/report_02/README.md)** · **[Scoring script](reports/report_02/report02_score_v0_1.py)** · **[Run logger](reports/report_02/report02_runner_v0_1.py)**
+
+## Diagnostic — When Qwen3 1.7B misreads document rules (28 October 2026)
+
+Nine self-authored fictional Polish documents (three conflicting, three consistent, three underspecified) were tested via direct local Ollama with `think=false`, `temperature=0`, and `seed=42`. All **9/9** model calls completed, but **4/9** met the internally applied strict semantic criteria. On the author-labelled ambiguous cases, calibrated `INCONCLUSIVE` responses were **0/3**. Only **2/6** required quotations were verbatim full sentences. A prominent failure combined a **consistent** verdict with an explanation that the conditions were **contradictory**.
+
+**Evidence boundary:** one response per case; author-labelled references; AI-assisted internal scoring, no independent reviewer; source ZIP retained privately. Published text transcriptions support inspection but not independent proof of the original model executions. **This does not establish a population accuracy estimate or demonstrate CFC/HAWM detection.** CFC was not run; the product and M6 integration boundary were not tested.
+
+**[English diagnostic report](experiments/qwen3-1.7b-document-consistency-9case/README.md)** · **[Nine source texts and model responses](experiments/qwen3-1.7b-document-consistency-9case/RAW_OBSERVATIONS.md)** · **[Polish summary](experiments/qwen3-1.7b-document-consistency-9case/OMOWIENIE_PL.md)**
 
 ## Data attribution and rights
 
