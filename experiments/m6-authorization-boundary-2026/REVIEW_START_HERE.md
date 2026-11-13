@@ -38,6 +38,10 @@ Its five files were present. The four payload hashes agreed with `SHA256SUMS.txt
 
 The complete source files whose hashes appear in the public index were **not provided in this packet** and their hash assertions are operator-origin. The source excerpt is from a later console display, not from within Step 278A ZIP.
 
+## Newly identified review questions: action-binding and time (no new test results)
+
+See **[Action-binding and timing review plan](ACTION_BINDING_AND_TIMING_REVIEW_PLAN.md)** for the separate `AB01–AB08` design scenarios and `T-M6` measurement requirement. Reviewers are particularly invited to challenge the **M6-02 `claim:c2` versus `c1` identity-binding problem**, whether a trusted verifier (not an untrusted caller) can prove the exact evaluated claim, positive-path false blocks, and how executor-side action and revocation timing would be independently observed. No new results, latency measurements or closure claims are implied.
+
 ## Six mandatory E2E gates — **all open**
 
 | Gate | What a genuine independent test must show | Status |
