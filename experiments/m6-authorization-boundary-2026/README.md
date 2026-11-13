@@ -4,6 +4,14 @@
 
 > This is an experimental authorization-boundary study. It is **not** an operational AI action-control product, a completed end-to-end security evaluation, or an independent security certification.
 
+## Independent review entry point — Step 277/278 (14 November 2026)
+
+**[START HERE — Reviewer packet](REVIEW_START_HERE.md)** · **[Evidence index (JSON)](PUBLIC_EVIDENCE_STEP278.json)** · **[Read-only verification script](verify_step278.py)** · **[Polish overview](OMOWIENIE_PL.md)** · **[Open review issue #3](https://github.com/iller1/ai-evaluation-portfolio/issues/3)**
+
+This new packet records a **locally reported negative identity control** (`DENY_WRONG_PROCESS_IDENTITY`), compilation with an `APPROVAL_HOLD` source excerpt, and a SHA-256 checked **private** Step 278A archive. A byte-identical historical DLL rebuild was **not** established. **No positive independent approval was executed and no E2E gate was closed.**
+
+**Review scope:** public claims, digests, static HOLD reasoning and falsifiable design questions. **Reproduction limit:** original ZIP, full source, and laboratory host environment are *not* publicly included; anyone claiming independent full replication from this page would be overstating the evidence.
+
 ## The question
 
 A justified AI conclusion is not the same thing as permission to act on it.
