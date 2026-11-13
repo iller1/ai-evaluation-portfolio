@@ -101,6 +101,10 @@ The original evidence ZIP, full raw Anchor output and wheel bytes are **not** ho
 
 ## M6 — Independent review of the November 2026 authorization boundary
 
+**[New: action-binding and timing review plan](experiments/m6-authorization-boundary-2026/ACTION_BINDING_AND_TIMING_REVIEW_PLAN.md)** — proposed `AB01–AB08` scenarios and a separate `T-M6` timing/freshness review condition (decision latency, target outcome, revocation propagation vs executor enforcement, TTL, and clock/network uncertainty). **All NOT RUN**; no change to `E2E 0/6` or the frozen CFC baseline.
+
+
+
 The project tests whether a correctly evaluated request can nevertheless be denied execution until a **separate, independently verifiable approval** exists. A locally rebuilt candidate reportedly denied a wrong-process identity, and a displayed source excerpt shows an unconditional approval-HOLD return before nonce-claim creation. This is **not** a full authorization success or an independently reproduced Windows run.
 
 **[Reviewer start page](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md)** · **[Public evidence index](experiments/m6-authorization-boundary-2026/PUBLIC_EVIDENCE_STEP278.json)** · **[Read-only evidence checker](experiments/m6-authorization-boundary-2026/verify_step278.py)** · **[Review issue #3](https://github.com/iller1/ai-evaluation-portfolio/issues/3)**
