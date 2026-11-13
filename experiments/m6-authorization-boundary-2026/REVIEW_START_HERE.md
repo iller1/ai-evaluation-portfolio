@@ -20,7 +20,7 @@ This November 2026 two-laptop **authorization-to-action** lab is distinct from t
 | [PUBLIC_EVIDENCE_STEP278.json](PUBLIC_EVIDENCE_STEP278.json) | Review of recorded build state, exact SHA-256 digests, reported negative outcome, hold state and source excerpt | Authenticity of the original run; the raw redacted fields cannot be re-hashed into the private original evidence file |
 | [verify_step278.py](verify_step278.py) | Stdlib-only structural checks on public JSON; optionally computes original ZIP/member hashes **if a reviewer separately has the private archive** | Re-execution of DLL, verification of source code behavior, or establishment of independent custody |
 | [Original lab overview](README.md) | Earlier scope, architecture, private Step 439/448 references, and six mandatory E2E gates | Closed E2E gates |
-| [Open review discussion](https://github.com/iller1/ai-evaluation-portfolio/issues) | Route to raise counterexamples or evidence questions | Any claim that an external review has already occurred |
+| [Open review discussion](https://github.com/iller1/ai-evaluation-portfolio/issues/3) | Route to raise counterexamples or evidence questions | Any claim that an external review has already occurred |
 
 The private, operator-origin Step 278A ZIP was provided to an assistant for secondary byte-level checking. SHA-256 was recalculated against the received ZIP and its entries; the reported ZIP digest is:
 
