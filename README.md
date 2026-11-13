@@ -12,6 +12,7 @@ An AI assistant can give a plausible answer based on an outdated, incomplete or 
 
 ## Where to start
 
+- **[M6 — independent authorization-to-action review (November 2026)](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md):** two-laptop lab, locally reported DENY result, public evidence index and read-only verifier. **CFC FROZEN · M6 HOLD · E2E 0/6 gates closed.** Full E2E reproduction is not publicly available; [technical review discussion](https://github.com/iller1/ai-evaluation-portfolio/issues/3) is open.
 - **[Study 01 — paired model evaluation](reports/report_01/README.md):** 200 ARC-Easy items, 400 model responses; an additional instruction did **not** establish better accuracy. Includes published statistical recomputation with explicit evidence limits.
 - **[Study 02 — preregistered stability experiment](reports/report_02/README.md):** 45 synthetic evidence–claim pairs, predefined seeds and scoring rules. **Frozen locally; not run; no results.**
 - **[Nine-case Qwen3 1.7B failure-mode diagnostic](experiments/qwen3-1.7b-document-consistency-9case/README.md):** document-rule consistency and uncertainty, 4/9 strict semantic PASS; includes original source texts and verbatim response transcriptions. **Direct Ollama only; not a product/CFC test.**
@@ -97,3 +98,11 @@ A three-case **synthetic, internally audited** diagnostic of Integration Layer v
 The original evidence ZIP, full raw Anchor output and wheel bytes are **not** hosted here; the original wheel/output cannot be independently replayed from this publication. The next step is **independent design review**, not a proposed fix presented as implemented.
 
 **[Report](experiments/m6-request-anchor-binding/REPORT_EN.md)** · **[Audit receipt](experiments/m6-request-anchor-binding/AUDIT_RECEIPT.json)** · **[Proposed binding contract — not implemented](experiments/m6-request-anchor-binding/BOUNDARY_CONTRACT_PROPOSAL_v0.1.md)** · **[Polish overview](experiments/m6-request-anchor-binding/OMOWIENIE_PL.md)**
+
+## M6 — Independent review of the November 2026 authorization boundary
+
+The project tests whether a correctly evaluated request can nevertheless be denied execution until a **separate, independently verifiable approval** exists. A locally rebuilt candidate reportedly denied a wrong-process identity, and a displayed source excerpt shows an unconditional approval-HOLD return before nonce-claim creation. This is **not** a full authorization success or an independently reproduced Windows run.
+
+**[Reviewer start page](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md)** · **[Public evidence index](experiments/m6-authorization-boundary-2026/PUBLIC_EVIDENCE_STEP278.json)** · **[Read-only evidence checker](experiments/m6-authorization-boundary-2026/verify_step278.py)** · **[Review issue #3](https://github.com/iller1/ai-evaluation-portfolio/issues/3)**
+
+**Status: `CFC FROZEN | M6 HOLD | E2E 0/6`.** The six mandatory gates remain open. The raw operator ZIP, complete source and executable are withheld pending disclosure review; the public packet enables **critical examination and limited consistency checking, not full experiment replication**.
