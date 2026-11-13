@@ -23,3 +23,18 @@ Może zweryfikować strukturę opublikowanego indeksu i podważyć logikę wnios
 **Prosimy szczególnie o:** kontrprzykład, rozbieżność między twierdzeniem a dowodem, sposób obejścia granicy wykonawcy, minimalny projekt niezależnej akceptacji oraz ocenę sześciu wymaganych testów.
 
 **Status:** `CFC FROZEN | M6 HOLD | E2E 0/6`. Żadnej aktywacji systemu.
+
+
+## Dodatkowy plan przeglądu — wiązanie działania i czas
+
+**[Plan techniczny EN: ACTION_BINDING_AND_TIMING_REVIEW_PLAN.md](ACTION_BINDING_AND_TIMING_REVIEW_PLAN.md)**
+
+W historycznym przypadku `M6-02` żądano `claim:c2`, lecz callback oceniał `c1`. Warstwa integracyjna zwróciła `ALLOW`, ale **nie wykonano działania**. Problemem jest wiarygodne powiązanie żądania z rzeczywiście ocenionym obiektem i dowodami, **nie** udowodniony błąd zamrożonego Anchor.
+
+Nowe scenariusze `AB01–AB08` sprawdzą kiedyś zgodność obiektu, autentyczność źródła powiązania, cofnięcie zgody, replay, zmianę stanu, utratę łączności i ryzyko fałszywych STOP. **Żaden z tych testów nie został wykonany.** Etykiety `AB` celowo nie pokrywają się z sześcioma historycznymi bramkami E2E.
+
+**`T-M6: DESIGN_OPEN / MEASUREMENT_NOT_RUN`** to osobna przyszła kontrola czasowa: czas decyzji, czas od decyzji do dowodu wyniku od executora, czas propagacji revocation **oraz osobno** skuteczność blokady przy wykonaniu, TTL/expiry i wpływ opóźnień/zegarów. Nie ustalono arbitralnego bezpiecznego progu. Najpierw trzeba uzgodnić ryzyko, pomiar, dopuszczalny margines i zamrożone kryteria.
+
+Zapis z kontrolowanego laboratorium (`LAB_TARGET_RECEIPT`) nie jest tym samym co dowód z niezależnie zarządzanego systemu (`INDEPENDENT_TARGET_RECEIPT`).
+
+**Status bez zmian:** `CFC FROZEN | M6 HOLD | E2E 0/6`. To **plan przeglądu**, nie nowe PASS ani prerejestracja wykonanego badania.
