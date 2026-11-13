@@ -48,6 +48,12 @@ The unresolved questions include:
 
 An approval contract and an approval-HOLD source candidate exist privately. The HOLD candidate was checked at source/compile level only; it has **not** been established as a deployed runtime control. An older, not-approved executable candidate must not be confused with that later source.
 
+## Additional review requirement — action binding and timing (NOT EXECUTED)
+
+**[Action-binding and timing review plan](ACTION_BINDING_AND_TIMING_REVIEW_PLAN.md)** specifies future `AB01–AB08` scenarios for mismatched claims, trusted binding, revoked approvals, stale snapshots, replay and false STOP controls. It also introduces a **proposed future timing review condition** `T-M6: DESIGN_OPEN / MEASUREMENT_NOT_RUN` covering decision latency, executor-to-target outcome, revocation propagation **separately from revocation enforcement**, TTL/expiry, network delays and clock skew. The source is an analysis/design proposal, **not test evidence**.
+
+`AB01–AB08` are not the historic `B01–B03` gates; `T-M6` does not increase the historical E2E denominator. The six original gates remain **0/6 closed**. The older [M6-02 integration mismatch](../m6-request-anchor-binding/REPORT_EN.md) remains relevant but is not proof of an action being executed.
+
 ## Mandatory end-to-end gates — all open
 
 | Gate | Required observation | Status |
