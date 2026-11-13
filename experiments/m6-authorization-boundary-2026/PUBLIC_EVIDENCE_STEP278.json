@@ -1,0 +1,95 @@
+{
+  "schema": "m6-step277-278-public-evidence-v1",
+  "published_date": "2026-11-14",
+  "purpose": "Privacy-minimized index of operator-origin evidence for independent critique, not proof of production enforcement",
+  "origin": "PRIVATE_OPERATOR_ARCHIVE;NO_INDEPENDENT_CUSTODY",
+  "verification_boundary": "Original private ZIP and entries were SHA-256 checked against uploaded bytes; no independent verification of the original Windows run",
+  "private_zip": {
+    "filename": "M6_STEP278A_EVIDENCE_VERIFIED_PRIVATE.zip",
+    "sha256": "E90D48D9F307FEC0D7025924EF97993D3DAB01BF4EA75433719A71ED022D58CE",
+    "published": false
+  },
+  "entries": [
+    {
+      "name": "M6_STEP277_REBUILT_HOLD.dll",
+      "size_bytes": 16896,
+      "sha256": "8A00AB6BBCFEC6EAE01206DA144F00B40DB829265D78DD05F197BBA4C618CAF7"
+    },
+    {
+      "name": "evidence.json",
+      "size_bytes": 3900,
+      "sha256": "068C3BCC1A935276335A3971B8323D8EFBD0BA1257CEEA626D7B2D6BB0A95523"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size_bytes": 350,
+      "sha256": "EF72CFFD54F20E7664B1B3A281A83C070BA5E88FD5EE2148535028DE9F28816D"
+    },
+    {
+      "name": "compiler_stdout.txt",
+      "size_bytes": 153,
+      "sha256": "7CAD43E17C99CEEE1107073A75D1B5B9FC792CDF530FF562E7CC21F5F2CE8D96"
+    },
+    {
+      "name": "compiler_stderr.txt",
+      "size_bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    }
+  ],
+  "original_source_hashes_reported": [
+    {
+      "name": "M6AuthorizationCore_v0.2.cs",
+      "sha256": "BF1FAD45E3EB2A15A1782EC302999E399A5D82888DC84142A4F700CB77C51F03"
+    },
+    {
+      "name": "M6AtomicCommit_v0.2.8_APPROVAL_HOLD.cs",
+      "sha256": "E8F733AE57FA939E0524F63CCC7CDD11B5788E68B4438BA12BF2680ABBD48D8F"
+    },
+    {
+      "name": "M6CommitService_v0.2.5.cs",
+      "sha256": "5B8F0D08F50BB442798D7068F55694D6B5317C862D3C2CF689A518541A36813D"
+    },
+    {
+      "name": "M6Audit_v0.1.cs",
+      "sha256": "5F8D69F8776401DF0FDD94F7363D1F97F832F005C7B6A466A9B3F2796FA3BE4F"
+    }
+  ],
+  "recorded": {
+    "run_step": "M6_STEP277",
+    "test_id": "263A_REBUILT_WRONG_IDENTITY_ONLY",
+    "compiler_exit_code": 0,
+    "compiler_warning": "CS0162: Unreachable code detected",
+    "compiler_warning_line": 145,
+    "rebuilt_dll_sha256": "8A00AB6BBCFEC6EAE01206DA144F00B40DB829265D78DD05F197BBA4C618CAF7",
+    "historical_reference_sha256": "2A7D00F5B720B8BD2CBFD835717FDFC868AB22DADEA96BBD83ED912AA757E906",
+    "byte_identical_to_historical_reference": false,
+    "negative_control_result": "DENY_WRONG_PROCESS_IDENTITY",
+    "positive_control_executed": false,
+    "approval_path_executed": false,
+    "service_installed_or_started": false,
+    "independent_authority": "NOT_ESTABLISHED",
+    "cfc": "FROZEN",
+    "m6": "HOLD",
+    "e2e_gates_closed": 0,
+    "e2e_gates_total": 6
+  },
+  "operator_console_excerpt": {
+    "origin": "Separately supplied PowerShell source excerpt (not a file in Step 278A ZIP)",
+    "source_file": "M6AtomicCommit_v0.2.8_APPROVAL_HOLD.cs",
+    "line_135": "if (evaluation != \"ELIGIBLE_FOR_ATOMIC_GATE_ONLY\")",
+    "line_136": "return evaluation;",
+    "line_138": "// M6 APPROVAL HOLD:",
+    "line_139": "// A valid request signature is not independent approval.",
+    "line_140": "// No verified independent approval mechanism exists yet.",
+    "line_141": "// This candidate must never reach nonce-claim creation.",
+    "line_142": "return \"DENY_INDEPENDENT_APPROVAL_NOT_IMPLEMENTED\";",
+    "line_145": "string contract = Encoding.ASCII.GetString(request);"
+  },
+  "disclosure": {
+    "raw_zip_public": false,
+    "complete_sources_public_in_this_packet": false,
+    "binary_public": false,
+    "full_e2e_test_logs_public": false,
+    "full_reproduction_from_public_repo_possible": false
+  }
+}
