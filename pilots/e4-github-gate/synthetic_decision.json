@@ -1,0 +1,6 @@
+{
+  "action": "NOOP",
+  "decision_id": "DEMO-001",
+  "resource_id": "KB-DEMO-001",
+  "scope": "DEMO_ONLY"
+}
