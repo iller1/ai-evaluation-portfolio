@@ -1,5 +1,12 @@
 # AI Evaluation & Assurance Portfolio
 
+> **Start here (selected evidence):** [Study 01 — paired evaluation](reports/report_01/README.md) · [M6 — binding counterexample](experiments/m6-request-anchor-binding/REPORT_EN.md) · [Qwen3 — nine-case diagnostic](experiments/qwen3-1.7b-document-consistency-9case/README.md)
+>
+> **Quick links:** [Reference shelf / earlier work](REFERENCE_INDEX.md) · [External TCC Alpha case](case-studies/tcc-alpha-2026/README.md) · [M6 review (HOLD)](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md) · [Rights & reuse](RIGHTS_AND_REUSE.md)
+>
+> These are scoped research and evaluation records, not independently certified product claims. Older reports remain available at their original paths.
+
+
 **Krzysztof Sliwka** · [GitHub @iller1](https://github.com/iller1)
 
 **I test when AI-generated answers can—and cannot—be trusted against defined evidence and rules.** I design small, inspectable evaluations, freeze criteria before running tests, publish unfavorable findings, and state exactly what the evidence does *not* prove.
