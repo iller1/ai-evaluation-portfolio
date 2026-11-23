@@ -2,7 +2,7 @@
 
 > **Start here (selected evidence):** [Study 01 — paired evaluation](reports/report_01/README.md) · [M6 — binding counterexample](experiments/m6-request-anchor-binding/REPORT_EN.md) · [Qwen3 — nine-case diagnostic](experiments/qwen3-1.7b-document-consistency-9case/README.md)
 >
-> **Quick links:** [Reference shelf / earlier work](REFERENCE_INDEX.md) · [External TCC Alpha case](case-studies/tcc-alpha-2026/README.md) · [M6 review (HOLD)](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md) · [Rights & reuse](RIGHTS_AND_REUSE.md)
+> **Quick links:** [Reference shelf / earlier work](REFERENCE_INDEX.md) · [External TCC Alpha case](case-studies/tcc-alpha-2026/README.md) · [RS AI Factory evaluation](case-studies/rs-ai-factory-2026/README.md) · [M6 review (HOLD)](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md) · [Rights & reuse](RIGHTS_AND_REUSE.md)
 >
 > These are scoped research and evaluation records, not independently certified product claims. Older reports remain available at their original paths.
 
@@ -19,6 +19,7 @@ An AI assistant can give a plausible answer based on an outdated, incomplete or 
 
 ## Where to start
 
+- **[RS AI Factory — independent offline verifier evaluation (November 2026)](case-studies/rs-ai-factory-2026/README.md):** 10 verifier invocations matched expected result categories and exit codes, including four evaluator-designed negative alterations. All ten outputs retained six explicit `INCONCLUSIVE` findings. **Limited-scope evaluator-run evidence, not full-platform certification.**
 - **[M6 — independent authorization-to-action review (November 2026)](experiments/m6-authorization-boundary-2026/REVIEW_START_HERE.md):** two-laptop lab, locally reported DENY result, public evidence index and read-only verifier. **CFC FROZEN · M6 HOLD · E2E 0/6 gates closed.** Full E2E reproduction is not publicly available; [technical review discussion](https://github.com/iller1/ai-evaluation-portfolio/issues/3) is open.
 - **[Study 01 — paired model evaluation](reports/report_01/README.md):** 200 ARC-Easy items, 400 model responses; an additional instruction did **not** establish better accuracy. Includes published statistical recomputation with explicit evidence limits.
 - **[Study 02 — preregistered stability experiment](reports/report_02/README.md):** 45 synthetic evidence–claim pairs, predefined seeds and scoring rules. **Frozen locally; not run; no results.**
